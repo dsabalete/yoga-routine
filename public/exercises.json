@@ -1,0 +1,146 @@
+[
+  {
+    "id": "mountain-pose",
+    "name": "Mountain Pose",
+    "sanskrit": "Tadasana",
+    "description": "Stand tall with feet together, arms at sides. Ground through feet, lengthen spine.",
+    "category": "standing",
+    "difficulty": "beginner",
+    "defaultDuration": 30
+  },
+  {
+    "id": "downward-dog",
+    "name": "Downward Facing Dog",
+    "sanskrit": "Adho Mukha Svanasana",
+    "description": "From hands and knees, lift hips up and back. Press heels toward floor.",
+    "category": "inversion",
+    "difficulty": "beginner",
+    "defaultDuration": 45
+  },
+  {
+    "id": "warrior-1",
+    "name": "Warrior I",
+    "sanskrit": "Virabhadrasana I",
+    "description": "Step one foot back, bend front knee, raise arms overhead. Square hips forward.",
+    "category": "standing",
+    "difficulty": "beginner",
+    "defaultDuration": 30
+  },
+  {
+    "id": "warrior-2",
+    "name": "Warrior II",
+    "sanskrit": "Virabhadrasana II",
+    "description": "From Warrior I, open hips to side, arms parallel to floor, gaze over front hand.",
+    "category": "standing",
+    "difficulty": "beginner",
+    "defaultDuration": 30
+  },
+  {
+    "id": "tree-pose",
+    "name": "Tree Pose",
+    "sanskrit": "Vrksasana",
+    "description": "Balance on one foot, place other foot on inner thigh or calf. Hands at heart or overhead.",
+    "category": "balance",
+    "difficulty": "beginner",
+    "defaultDuration": 30
+  },
+  {
+    "id": "triangle-pose",
+    "name": "Triangle Pose",
+    "sanskrit": "Trikonasana",
+    "description": "Wide stance, reach front hand down to shin/ankle, other arm up. Open chest.",
+    "category": "standing",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "child-pose",
+    "name": "Child's Pose",
+    "sanskrit": "Balasana",
+    "description": "Kneel, sit back on heels, fold forward, arms extended or by sides. Rest forehead on mat.",
+    "category": "restorative",
+    "difficulty": "beginner",
+    "defaultDuration": 60
+  },
+  {
+    "id": "cat-cow",
+    "name": "Cat-Cow",
+    "sanskrit": "Marjaryasana-Bitilasana",
+    "description": "On hands and knees, alternate arching and rounding spine with breath.",
+    "category": "warmup",
+    "difficulty": "beginner",
+    "defaultDuration": 60
+  },
+  {
+    "id": "cobra-pose",
+    "name": "Cobra Pose",
+    "sanskrit": "Bhujangasana",
+    "description": "Lie on belly, hands under shoulders, press up lifting chest. Keep elbows bent.",
+    "category": "backbend",
+    "difficulty": "beginner",
+    "defaultDuration": 30
+  },
+  {
+    "id": "bridge-pose",
+    "name": "Bridge Pose",
+    "sanskrit": "Setu Bandha Sarvangasana",
+    "description": "Lie on back, knees bent, feet hip-width. Lift hips, clasp hands under back.",
+    "category": "backbend",
+    "difficulty": "beginner",
+    "defaultDuration": 45
+  },
+  {
+    "id": "seated-forward-fold",
+    "name": "Seated Forward Fold",
+    "sanskrit": "Paschimottanasana",
+    "description": "Sit with legs extended, hinge at hips, reach for feet. Keep spine long.",
+    "category": "forward-fold",
+    "difficulty": "beginner",
+    "defaultDuration": 60
+  },
+  {
+    "id": "corpse-pose",
+    "name": "Corpse Pose",
+    "sanskrit": "Savasana",
+    "description": "Lie flat on back, arms at sides, palms up. Complete relaxation.",
+    "category": "restorative",
+    "difficulty": "beginner",
+    "defaultDuration": 120
+  },
+  {
+    "id": "hiperflexion-leg",
+    "name": "Hiperflexion for Each Leg",
+    "sanskrit": "Supta Padangusthasana",
+    "description": "Lie on back, extend one leg up while keeping the other flat. Hold the foot or use a strap. Switch legs.",
+    "category": "forward-fold",
+    "difficulty": "intermediate",
+    "defaultDuration": 45
+  },
+  {
+    "id": "greatest-stretch-side",
+    "name": "Greatest Stretch for Side",
+    "sanskrit": "Parsvottanasana Variation",
+    "description": "From a lunge position, twist torso toward the front leg, reaching one arm up and the other down. Opens hips and side body.",
+    "category": "standing",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "plunge-hamstring-side",
+    "name": "Plunge for Hamstring for Side",
+    "sanskrit": "Ardha Hanumanasana",
+    "description": "Low lunge with back knee down, shift hips back to straighten front leg. Folds over the front leg to stretch the hamstring.",
+    "category": "forward-fold",
+    "difficulty": "intermediate",
+    "defaultDuration": 45
+  },
+  {
+    "id": "quad-stretch",
+    "name": "Quad Stretch",
+    "sanskrit": "Supta Virasana Variation",
+    "description": "From a low lunge, lower the back knee and reach back to grab the back foot. Pull heel toward glute to stretch the quadriceps.",
+    "category": "backbend",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  }
+]
