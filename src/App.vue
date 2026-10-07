@@ -58,6 +58,8 @@ function handleAddExercise(exercise: typeof allExercises.value[0]) {
 function handleMoveExercise(from: number, to: number) {
   moveExercise(from, to)
 }
+
+const appVersion = __APP_VERSION__
 </script>
 
 <template>
@@ -70,55 +72,36 @@ function handleMoveExercise(from: number, to: number) {
 
     <main class="app-main">
       <div class="left-panel">
-        <ExerciseList
-          :exercises="allExercises"
-          :routine-exercises="routineExercises"
-          @add="handleAddExercise"
-        />
+        <ExerciseList :exercises="allExercises" :routine-exercises="routineExercises" @add="handleAddExercise" />
       </div>
 
       <div class="center-panel">
-        <TimerDisplay
-          :current-exercise="currentExercise"
-          :upcoming-exercise="upcomingExercise"
-          :time-remaining="timeRemaining"
-          :total-duration="totalDuration"
-          :current-index="currentIndex"
-          :total-exercises="routineExercises.length"
-          :is-running="isRunning"
-          :is-paused="isPaused"
-          :is-complete="isComplete"
-          :is-resting="isResting"
-          :formatted-time-remaining="formattedTimeRemaining"
-          :formatted-rest-remaining="formattedRestRemaining"
-          :formatted-total-duration="formattedTotalDuration"
-          :progress="progress"
-        />
+        <TimerDisplay :current-exercise="currentExercise" :upcoming-exercise="upcomingExercise"
+          :time-remaining="timeRemaining" :total-duration="totalDuration" :current-index="currentIndex"
+          :total-exercises="routineExercises.length" :is-running="isRunning" :is-paused="isPaused"
+          :is-complete="isComplete" :is-resting="isResting" :formatted-time-remaining="formattedTimeRemaining"
+          :formatted-rest-remaining="formattedRestRemaining" :formatted-total-duration="formattedTotalDuration"
+          :progress="progress" />
 
-        <TimerControls
-          :is-running="isRunning"
-          :is-paused="isPaused"
-          :is-complete="isComplete"
-          :has-exercises="routineExercises.length > 0"
-          @start="startTimer"
-          @pause="pauseTimer"
-          @resume="resumeTimer"
-          @stop="stopTimer"
-        />
+        <TimerControls :is-running="isRunning" :is-paused="isPaused" :is-complete="isComplete"
+          :has-exercises="routineExercises.length > 0" @start="startTimer" @pause="pauseTimer" @resume="resumeTimer"
+          @stop="stopTimer" />
       </div>
 
       <div class="right-panel">
-        <RoutineBuilder
-          :routine-exercises="routineExercises"
-          :current-index="currentIndex"
-          :is-running="isRunning"
-          :on-remove="removeExercise"
-          :on-move="handleMoveExercise"
-          :on-update-duration="updateExerciseDuration"
-          :on-clear="clearRoutine"
-        />
+        <RoutineBuilder :routine-exercises="routineExercises" :current-index="currentIndex" :is-running="isRunning"
+          :on-remove="removeExercise" :on-move="handleMoveExercise" :on-update-duration="updateExerciseDuration"
+          :on-clear="clearRoutine" />
       </div>
     </main>
+
+    <footer class="app-footer">
+      <a class="coffee-link" href="https://www.buymeacoffee.com/dsabalete" target="_blank" rel="noopener"
+        aria-label="Buy me a coffee"><img class="coffee-button"
+          src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" /></a>
+      <span class="app-version">v{{ appVersion }}</span>
+      <span class="signature">Made with ❤️ by @dsabalete</span>
+    </footer>
   </div>
 </template>
 
@@ -157,6 +140,40 @@ body {
   margin: 0.5rem 0 0;
   opacity: 0.9;
   font-size: 1rem;
+}
+
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.7rem;
+  color: #a0aec0;
+}
+
+.coffee-link {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.coffee-link:hover {
+  opacity: 0.85;
+}
+
+.coffee-button {
+  height: 30px;
+  width: auto;
+}
+
+.app-version {
+  font-size: 0.7rem;
+  color: #a0aec0;
+}
+
+.signature {
+  font-size: 0.7rem;
+  color: #a0aec0;
 }
 
 .wake-lock-badge {
