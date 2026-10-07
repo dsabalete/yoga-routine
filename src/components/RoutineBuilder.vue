@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import type { RoutineExercise } from '../composables/useYogaRoutine'
+import PoseImage from './PoseImage.vue'
 
 interface Props {
   routineExercises: RoutineExercise[]
@@ -91,6 +92,7 @@ function formatTotalTime(seconds: number): string {
         @dragend="() => { draggedIndex = null; dragOverIndex = null }"
       >
         <div class="drag-handle" title="Drag to reorder">⋮⋮</div>
+        <PoseImage :id="exercise.id" :name="exercise.name" :image="exercise.image" size="small" />
         <div class="pose-info">
           <div class="pose-header">
             <span class="pose-number">{{ index + 1 }}</span>

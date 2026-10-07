@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import type { Exercise } from '../composables/useYogaRoutine'
+import PoseImage from './PoseImage.vue'
 
 interface Props {
   exercises: Exercise[]
@@ -48,6 +49,7 @@ const isInRoutine = (exercise: Exercise) => {
         class="exercise-card"
         :class="{ 'in-routine': isInRoutine(exercise) }"
       >
+        <PoseImage :id="exercise.id" :name="exercise.name" :image="exercise.image" size="medium" />
         <div class="exercise-info">
           <h3>{{ exercise.name }}</h3>
           <p class="sanskrit">{{ exercise.sanskrit }}</p>
@@ -124,6 +126,7 @@ const isInRoutine = (exercise: Exercise) => {
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.2s ease;
+  gap: 0.75rem;
 }
 
 .exercise-card:hover {

@@ -10,6 +10,7 @@ export interface Exercise {
   category: string
   difficulty: string
   defaultDuration: number
+  image?: string
 }
 
 export interface RoutineExercise extends Exercise {
@@ -151,11 +152,16 @@ export function useYogaRoutine() {
   function initializeExercises(exercises: Exercise[]) {
     allExercises.value = exercises
     // Initialize duration for routine exercises if not set
-    routineExercises.value = routineExercises.value.map((ex, index) => ({
-      ...ex,
-      duration: ex.duration || allExercises.value.find(e => e.id === ex.id)?.defaultDuration || 30,
-      order: index
-    }))
+    // Also backfill image for routines saved before images existed.
+    routineExercises.value = routineExercises.value.map((ex, index) => {
+      const libraryPose = allExercises.value.find(e => e.id === ex.id)
+      return {
+        ...ex,
+        image: ex.image || libraryPose?.image,
+        duration: ex.duration || libraryPose?.defaultDuration || 30,
+        order: index
+      }
+    })
   }
 
   function addExercise(exercise: Exercise) {

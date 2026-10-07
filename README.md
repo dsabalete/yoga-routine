@@ -72,6 +72,34 @@ Edit `public/exercises.json`. Each pose has:
 | `category` | e.g. standing, restorative, backbend |
 | `difficulty` | beginner / intermediate / advanced |
 | `defaultDuration` | Default hold time in seconds |
+| `image` | Path to pose illustration, e.g. `/images/mountain-pose.svg` |
+
+## Pose Photos
+
+Each pose shows a realistic photo hotlinked from
+[Wikimedia Commons](https://commons.wikimedia.org) (CC BY-SA, resized to
+800px via `Special:FilePath`). If a photo fails to load (e.g. offline), the
+app falls back to the local SVG illustration in `public/images/<pose-id>.svg`,
+then to an initials avatar. The local SVGs also keep the app usable offline.
+
+| Pose(s) | Commons file |
+|---------|--------------|
+| Mountain Pose | `Tadasana yoga pose.jpg` |
+| Downward Facing Dog | `Downward Dog Pose (Doga).jpg` |
+| Warrior I | `Virabhadrasana I - Warrior Pose I.jpg` |
+| Warrior II | `Virabhadrasana II - Warrior II Pose.jpg` |
+| Tree Pose | `Vriksasana Yoga-Asana Nina-Mel.jpg` |
+| Triangle Pose | `Trikonasana Yoga-Asana Nina-Mel.jpg` |
+| Child's Pose | `Balasana.JPG` |
+| Cat-Cow | `Yoga at Your Park - Bidalasana.jpg` |
+| Cobra Pose | `Bhujangasana Yoga-Asana Nina-Mel.jpg` |
+| Bridge Pose | `Setubandhasana oblique view.JPG` |
+| Seated Forward Fold | `Paschimottanasana.jpg` |
+| Corpse Pose | `Shavasana.jpg` |
+| Hiperflexion (L/R) | `Utthita-Hasta-Padangusthasana Yoga-Asana Nina-Mel.jpg` (standing big-toe hold — same leg-up shape as the supine stretch) |
+| Greatest Stretch (L/R) | `Parivrtta-Trikonasana Yoga-Asana Nina-Mel.jpg` (revolved triangle — same lunge-and-twist shape) |
+| Plunge Hamstring (L/R) | `Hanumanasana - Monkey Pose - Side view.jpg` (full split — shows the hamstring line) |
+| Quad Stretch (L/R) | `Supta-Virasana Yoga-Asana Nina-Mel.jpg` |
 
 ## Notes for Future Developers
 

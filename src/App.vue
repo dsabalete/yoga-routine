@@ -100,6 +100,7 @@ const appVersion = __APP_VERSION__
         aria-label="Buy me a coffee"><img class="coffee-button"
           src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" /></a>
       <span class="app-version">v{{ appVersion }}</span>
+      <span class="photo-credit">Pose photos: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> (CC BY-SA)</span>
       <span class="signature">Made with ❤️ by @dsabalete</span>
     </footer>
   </div>
@@ -168,6 +169,15 @@ body {
 
 .app-version {
   font-size: 0.7rem;
+  color: #a0aec0;
+}
+
+.photo-credit {
+  font-size: 0.7rem;
+  color: #a0aec0;
+}
+
+.photo-credit a {
   color: #a0aec0;
 }
 

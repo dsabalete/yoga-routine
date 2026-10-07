@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { RoutineExercise } from '../composables/useYogaRoutine'
+import PoseImage from './PoseImage.vue'
 
 interface Props {
   currentExercise: RoutineExercise | null
@@ -38,12 +39,14 @@ const statusText = computed(() => {
 
     <div v-if="isResting && upcomingExercise" class="current-pose-info">
       <p class="up-next-label">Up next</p>
+      <PoseImage :id="upcomingExercise.id" :name="upcomingExercise.name" :image="upcomingExercise.image" size="large" />
       <h2 class="pose-name">{{ upcomingExercise.name }}</h2>
       <p class="pose-sanskrit">{{ upcomingExercise.sanskrit }}</p>
       <p class="pose-description">Take a breath and move into position…</p>
     </div>
 
     <div v-else-if="currentExercise" class="current-pose-info">
+      <PoseImage :id="currentExercise.id" :name="currentExercise.name" :image="currentExercise.image" size="large" />
       <h2 class="pose-name">{{ currentExercise.name }}</h2>
       <p class="pose-sanskrit">{{ currentExercise.sanskrit }}</p>
       <p class="pose-description">{{ currentExercise.description }}</p>

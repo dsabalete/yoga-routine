@@ -6,7 +6,8 @@
     "description": "Stand tall with feet together, arms at sides. Ground through feet, lengthen spine.",
     "category": "standing",
     "difficulty": "beginner",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tadasana%20yoga%20pose.jpg?width=800"
   },
   {
     "id": "downward-dog",
@@ -15,7 +16,8 @@
     "description": "From hands and knees, lift hips up and back. Press heels toward floor.",
     "category": "inversion",
     "difficulty": "beginner",
-    "defaultDuration": 45
+    "defaultDuration": 45,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Downward%20Dog%20Pose%20%28Doga%29.jpg?width=800"
   },
   {
     "id": "warrior-1",
@@ -24,7 +26,8 @@
     "description": "Step one foot back, bend front knee, raise arms overhead. Square hips forward.",
     "category": "standing",
     "difficulty": "beginner",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Virabhadrasana%20I%20-%20Warrior%20Pose%20I.jpg?width=800"
   },
   {
     "id": "warrior-2",
@@ -33,7 +36,8 @@
     "description": "From Warrior I, open hips to side, arms parallel to floor, gaze over front hand.",
     "category": "standing",
     "difficulty": "beginner",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Virabhadrasana%20II%20-%20Warrior%20II%20Pose.jpg?width=800"
   },
   {
     "id": "tree-pose",
@@ -42,7 +46,8 @@
     "description": "Balance on one foot, place other foot on inner thigh or calf. Hands at heart or overhead.",
     "category": "balance",
     "difficulty": "beginner",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vriksasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "triangle-pose",
@@ -51,7 +56,8 @@
     "description": "Wide stance, reach front hand down to shin/ankle, other arm up. Open chest.",
     "category": "standing",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Trikonasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "child-pose",
@@ -60,7 +66,8 @@
     "description": "Kneel, sit back on heels, fold forward, arms extended or by sides. Rest forehead on mat.",
     "category": "restorative",
     "difficulty": "beginner",
-    "defaultDuration": 60
+    "defaultDuration": 60,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Balasana.JPG?width=800"
   },
   {
     "id": "cat-cow",
@@ -69,7 +76,8 @@
     "description": "On hands and knees, alternate arching and rounding spine with breath.",
     "category": "warmup",
     "difficulty": "beginner",
-    "defaultDuration": 60
+    "defaultDuration": 60,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yoga%20at%20Your%20Park%20-%20Bidalasana.jpg?width=800"
   },
   {
     "id": "cobra-pose",
@@ -78,7 +86,8 @@
     "description": "Lie on belly, hands under shoulders, press up lifting chest. Keep elbows bent.",
     "category": "backbend",
     "difficulty": "beginner",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bhujangasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "bridge-pose",
@@ -87,7 +96,8 @@
     "description": "Lie on back, knees bent, feet hip-width. Lift hips, clasp hands under back.",
     "category": "backbend",
     "difficulty": "beginner",
-    "defaultDuration": 45
+    "defaultDuration": 45,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Setubandhasana%20oblique%20view.JPG?width=800"
   },
   {
     "id": "seated-forward-fold",
@@ -96,7 +106,8 @@
     "description": "Sit with legs extended, hinge at hips, reach for feet. Keep spine long.",
     "category": "forward-fold",
     "difficulty": "beginner",
-    "defaultDuration": 60
+    "defaultDuration": 60,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Paschimottanasana.jpg?width=800"
   },
   {
     "id": "corpse-pose",
@@ -105,7 +116,8 @@
     "description": "Lie flat on back, arms at sides, palms up. Complete relaxation.",
     "category": "restorative",
     "difficulty": "beginner",
-    "defaultDuration": 120
+    "defaultDuration": 120,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Shavasana.jpg?width=800"
   },
   {
     "id": "hiperflexion-leg-left",
@@ -114,7 +126,8 @@
     "description": "Lie on back, extend left leg up while keeping the right flat. Hold the foot or use a strap. Switch legs.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Utthita-Hasta-Padangusthasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "hiperflexion-leg-right",
@@ -123,7 +136,8 @@
     "description": "Lie on back, extend right leg up while keeping the left flat. Hold the foot or use a strap. Switch legs.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Utthita-Hasta-Padangusthasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "greatest-stretch-side-left",
@@ -132,7 +146,8 @@
     "description": "From a lunge position, twist torso toward the front leg, reaching one arm up and the other down. Opens hips and side body.",
     "category": "standing",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Parivrtta-Trikonasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "greatest-stretch-side-right",
@@ -141,7 +156,8 @@
     "description": "From a lunge position, twist torso toward the front leg, reaching one arm up and the other down. Opens hips and side body.",
     "category": "standing",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Parivrtta-Trikonasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "plunge-hamstring-side-left",
@@ -150,7 +166,8 @@
     "description": "Low lunge with back knee down, shift hips back to straighten front leg. Folds over the front leg to stretch the hamstring.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hanumanasana%20-%20Monkey%20Pose%20-%20Side%20view.jpg?width=800"
   },
   {
     "id": "plunge-hamstring-side-right",
@@ -159,7 +176,8 @@
     "description": "Low lunge with back knee down, shift hips back to straighten front leg. Folds over the front leg to stretch the hamstring.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hanumanasana%20-%20Monkey%20Pose%20-%20Side%20view.jpg?width=800"
   },
   {
     "id": "quad-stretch-side-left",
@@ -168,7 +186,8 @@
     "description": "From a low lunge, lower the back knee and reach back to grab the back foot. Pull heel toward glute to stretch the quadriceps.",
     "category": "backbend",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Supta-Virasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   },
   {
     "id": "quad-stretch-side-right",
@@ -177,6 +196,7 @@
     "description": "From a low lunge, lower the back knee and reach back to grab the back foot. Pull heel toward glute to stretch the quadriceps.",
     "category": "backbend",
     "difficulty": "intermediate",
-    "defaultDuration": 30
+    "defaultDuration": 30,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Supta-Virasana%20Yoga-Asana%20Nina-Mel.jpg?width=800"
   }
 ]
