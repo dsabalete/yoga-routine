@@ -4,6 +4,7 @@ import type { RoutineExercise } from '../composables/useYogaRoutine'
 
 interface Props {
   currentExercise: RoutineExercise | null
+  upcomingExercise: RoutineExercise | null
   timeRemaining: number
   totalDuration: number
   currentIndex: number
@@ -11,7 +12,9 @@ interface Props {
   isRunning: boolean
   isPaused: boolean
   isComplete: boolean
+  isResting: boolean
   formattedTimeRemaining: string
+  formattedRestRemaining: string
   formattedTotalDuration: string
   progress: number
 }
@@ -22,6 +25,7 @@ const progressDegrees = computed(() => (props.progress / 100) * 360)
 
 const statusText = computed(() => {
   if (props.isComplete) return 'Routine Complete!'
+  if (props.isResting) return 'Transition'
   if (props.isPaused) return 'Paused'
   if (props.isRunning) return 'In Progress'
   return 'Ready'
@@ -29,10 +33,17 @@ const statusText = computed(() => {
 </script>
 
 <template>
-  <div class="timer-display" :class="{ 'is-running': isRunning, 'is-paused': isPaused, 'is-complete': isComplete }">
+  <div class="timer-display" :class="{ 'is-running': isRunning, 'is-paused': isPaused, 'is-complete': isComplete, 'is-resting': isResting }">
     <div class="status-badge">{{ statusText }}</div>
 
-    <div v-if="currentExercise" class="current-pose-info">
+    <div v-if="isResting && upcomingExercise" class="current-pose-info">
+      <p class="up-next-label">Up next</p>
+      <h2 class="pose-name">{{ upcomingExercise.name }}</h2>
+      <p class="pose-sanskrit">{{ upcomingExercise.sanskrit }}</p>
+      <p class="pose-description">Take a breath and move into position…</p>
+    </div>
+
+    <div v-else-if="currentExercise" class="current-pose-info">
       <h2 class="pose-name">{{ currentExercise.name }}</h2>
       <p class="pose-sanskrit">{{ currentExercise.sanskrit }}</p>
       <p class="pose-description">{{ currentExercise.description }}</p>
@@ -60,13 +71,13 @@ const statusText = computed(() => {
         />
       </svg>
       <div class="timer-text">
-        <span class="time-remaining">{{ formattedTimeRemaining }}</span>
+        <span class="time-remaining">{{ isResting ? formattedRestRemaining : formattedTimeRemaining }}</span>
         <span class="time-total">/ {{ formattedTotalDuration }}</span>
       </div>
     </div>
 
     <div class="pose-counter">
-      Pose {{ currentIndex + 1 }} of {{ totalExercises }}
+      Pose {{ isResting ? currentIndex + 2 : currentIndex + 1 }} of {{ totalExercises }}
     </div>
 
     <div class="progress-bar">
@@ -124,6 +135,20 @@ const statusText = computed(() => {
 .is-complete .status-badge {
   background: #f0fff4;
   color: #276749;
+}
+
+.is-resting .status-badge {
+  background: #e6fffa;
+  color: #234e52;
+}
+
+.up-next-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #319795;
 }
 
 .current-pose-info {

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest'
-import { useYogaRoutine } from '../useYogaRoutine'
+import { useYogaRoutine, TRANSITION_BREAK_SECONDS } from '../useYogaRoutine'
 
 // Wake lock is irrelevant to routine logic; stub it so jsdom doesn't hit
 // the real NoSleep video fallback (HTMLMediaElement.play is unimplemented).
@@ -191,11 +191,59 @@ describe('useYogaRoutine', () => {
       expect(routine.isRunning.value).toBe(true)
     })
 
-    it('should advance to next exercise when time expires', () => {
+    it('should take a transition break before the next exercise', () => {
+      expect(TRANSITION_BREAK_SECONDS).toBe(3)
       routine.startTimer()
       vi.advanceTimersByTime(31000)
+      // First pose finished, rest break starts instead of advancing immediately
+      expect(routine.currentIndex.value).toBe(0)
+      expect(routine.isResting.value).toBe(true)
+      expect(routine.restRemaining.value).toBe(3)
+      expect(routine.formattedRestRemaining.value).toBe('0:03')
+      expect(routine.upcomingExercise.value?.name).toBe('Downward Dog')
+      expect(routine.isRunning.value).toBe(true)
+      // After the break, the next pose starts
+      vi.advanceTimersByTime(4000)
+      expect(routine.isResting.value).toBe(false)
       expect(routine.currentIndex.value).toBe(1)
       expect(routine.timeRemaining.value).toBe(45)
+    })
+
+    it('should count down the transition break', () => {
+      routine.startTimer()
+      vi.advanceTimersByTime(31000)
+      expect(routine.restRemaining.value).toBe(3)
+      vi.advanceTimersByTime(2000)
+      expect(routine.isResting.value).toBe(true)
+      expect(routine.restRemaining.value).toBe(1)
+    })
+
+    it('should skip the transition break on manual next', () => {
+      routine.startTimer()
+      vi.advanceTimersByTime(31000)
+      expect(routine.isResting.value).toBe(true)
+      routine.nextExercise()
+      expect(routine.isResting.value).toBe(false)
+      expect(routine.currentIndex.value).toBe(1)
+      expect(routine.timeRemaining.value).toBe(45)
+    })
+
+    it('should not rest after the last exercise', () => {
+      routine.startTimer()
+      // 30s pose + 1 tick to start rest + 3s rest + 1 tick to advance + 45s pose + 1 tick to finish
+      vi.advanceTimersByTime(81000)
+      expect(routine.isResting.value).toBe(false)
+      expect(routine.isRunning.value).toBe(false)
+    })
+
+    it('should clear the transition break on stop', () => {
+      routine.startTimer()
+      vi.advanceTimersByTime(31000)
+      expect(routine.isResting.value).toBe(true)
+      routine.stopTimer()
+      expect(routine.isResting.value).toBe(false)
+      expect(routine.restRemaining.value).toBe(0)
+      expect(routine.upcomingExercise.value).toBeNull()
     })
 
     it('should stop timer and reset', () => {
@@ -209,7 +257,7 @@ describe('useYogaRoutine', () => {
 
     it('should complete routine after last exercise', () => {
       routine.startTimer()
-      vi.advanceTimersByTime(77000)
+      vi.advanceTimersByTime(82000)
       expect(routine.isRunning.value).toBe(false)
       expect(routine.currentIndex.value).toBe(0)
     })

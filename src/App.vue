@@ -14,11 +14,14 @@ const {
   isPaused,
   timeRemaining,
   currentExercise,
+  upcomingExercise,
   totalDuration,
   progress,
   isComplete,
   isWakeLockActive,
+  isResting,
   formattedTimeRemaining,
+  formattedRestRemaining,
   formattedTotalDuration,
   initializeExercises,
   addExercise,
@@ -77,6 +80,7 @@ function handleMoveExercise(from: number, to: number) {
       <div class="center-panel">
         <TimerDisplay
           :current-exercise="currentExercise"
+          :upcoming-exercise="upcomingExercise"
           :time-remaining="timeRemaining"
           :total-duration="totalDuration"
           :current-index="currentIndex"
@@ -84,7 +88,9 @@ function handleMoveExercise(from: number, to: number) {
           :is-running="isRunning"
           :is-paused="isPaused"
           :is-complete="isComplete"
+          :is-resting="isResting"
           :formatted-time-remaining="formattedTimeRemaining"
+          :formatted-rest-remaining="formattedRestRemaining"
           :formatted-total-duration="formattedTotalDuration"
           :progress="progress"
         />

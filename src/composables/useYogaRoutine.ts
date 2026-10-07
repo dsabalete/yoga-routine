@@ -103,6 +103,10 @@ export function useYogaRoutine() {
   }
 
   function tick() {
+    if (isResting.value) {
+      tickRest()
+      return
+    }
     if (timeRemaining.value > 0) {
       timeRemaining.value--
       elapsedTime.value++
@@ -110,8 +114,38 @@ export function useYogaRoutine() {
         playCountdownBeep()
       }
     } else {
-      nextExercise()
+      finishExercise()
     }
+  }
+
+  // Called when the current pose's time runs out.
+  function finishExercise() {
+    if (currentIndex.value < routineExercises.value.length - 1) {
+      playTransitionBeep()
+      isResting.value = true
+      restRemaining.value = TRANSITION_BREAK_SECONDS
+    } else {
+      stopTimer()
+      playCompletionSound()
+    }
+  }
+
+  function tickRest() {
+    if (restRemaining.value > 0) {
+      restRemaining.value--
+      if (restRemaining.value <= 3 && restRemaining.value > 0) {
+        playCountdownBeep()
+      }
+    } else {
+      currentIndex.value++
+      timeRemaining.value = routineExercises.value[currentIndex.value]?.duration || 0
+      isResting.value = false
+    }
+  }
+
+  function clearRest() {
+    isResting.value = false
+    restRemaining.value = 0
   }
 
   function initializeExercises(exercises: Exercise[]) {
@@ -179,6 +213,7 @@ export function useYogaRoutine() {
       currentIndex.value = 0
       timeRemaining.value = routineExercises.value[0]?.duration || 0
       elapsedTime.value = 0
+      clearRest()
     }
 
     isRunning.value = true
@@ -214,6 +249,7 @@ export function useYogaRoutine() {
     isRunning.value = false
     isPaused.value = false
     releaseWakeLock()
+    clearRest()
     if (timerInterval) {
       clearInterval(timerInterval)
       timerInterval = null
@@ -235,6 +271,7 @@ export function useYogaRoutine() {
       playTransitionBeep()
       currentIndex.value++
       timeRemaining.value = routineExercises.value[currentIndex.value]?.duration || 0
+      clearRest()
     } else {
       stopTimer()
       playCompletionSound()
@@ -245,6 +282,7 @@ export function useYogaRoutine() {
     if (currentIndex.value > 0) {
       currentIndex.value--
       timeRemaining.value = routineExercises.value[currentIndex.value]?.duration || 0
+      clearRest()
       elapsedTime.value = Math.max(0, elapsedTime.value - (routineExercises.value[currentIndex.value + 1]?.duration || 0))
     }
   }
@@ -257,6 +295,7 @@ export function useYogaRoutine() {
       }
       currentIndex.value = index
       timeRemaining.value = routineExercises.value[index]?.duration || 0
+      clearRest()
       // Recalculate elapsed time
       elapsedTime.value = routineExercises.value.slice(0, index).reduce((sum, ex) => sum + ex.duration, 0)
       if (wasRunning) {
@@ -289,13 +328,17 @@ export function useYogaRoutine() {
     timeRemaining,
     elapsedTime,
     isWakeLockActive,
+    isResting,
+    restRemaining,
 
     // Computed
     currentExercise,
+    upcomingExercise,
     totalDuration,
     progress,
     isComplete,
     formattedTimeRemaining,
+    formattedRestRemaining,
     formattedTotalDuration,
     formattedElapsedTime,
 
