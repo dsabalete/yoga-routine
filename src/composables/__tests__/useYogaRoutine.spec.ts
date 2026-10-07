@@ -1,6 +1,16 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest'
 import { useYogaRoutine } from '../useYogaRoutine'
 
+// Wake lock is irrelevant to routine logic; stub it so jsdom doesn't hit
+// the real NoSleep video fallback (HTMLMediaElement.play is unimplemented).
+vi.mock('nosleep.js', () => ({
+  default: class MockNoSleep {
+    enable = vi.fn().mockResolvedValue(undefined)
+    disable = vi.fn()
+    isEnabled = true
+  },
+}))
+
 const mockExercises = [
   {
     id: 'pose-1',

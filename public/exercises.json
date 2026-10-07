@@ -108,17 +108,26 @@
     "defaultDuration": 120
   },
   {
-    "id": "hiperflexion-leg",
-    "name": "Hiperflexion for Each Leg",
+    "id": "hiperflexion-leg-left",
+    "name": "Hiperflexion for Left Leg",
     "sanskrit": "Supta Padangusthasana",
-    "description": "Lie on back, extend one leg up while keeping the other flat. Hold the foot or use a strap. Switch legs.",
+    "description": "Lie on back, extend left leg up while keeping the right flat. Hold the foot or use a strap. Switch legs.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 45
+    "defaultDuration": 30
   },
   {
-    "id": "greatest-stretch-side",
-    "name": "Greatest Stretch for Side",
+    "id": "hiperflexion-leg-right",
+    "name": "Hiperflexion for Right Leg",
+    "sanskrit": "Supta Padangusthasana",
+    "description": "Lie on back, extend right leg up while keeping the left flat. Hold the foot or use a strap. Switch legs.",
+    "category": "forward-fold",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "greatest-stretch-side-left",
+    "name": "Greatest Stretch for Left Side",
     "sanskrit": "Parsvottanasana Variation",
     "description": "From a lunge position, twist torso toward the front leg, reaching one arm up and the other down. Opens hips and side body.",
     "category": "standing",
@@ -126,17 +135,44 @@
     "defaultDuration": 30
   },
   {
-    "id": "plunge-hamstring-side",
-    "name": "Plunge for Hamstring for Side",
+    "id": "greatest-stretch-side-right",
+    "name": "Greatest Stretch for Right Side",
+    "sanskrit": "Parsvottanasana Variation",
+    "description": "From a lunge position, twist torso toward the front leg, reaching one arm up and the other down. Opens hips and side body.",
+    "category": "standing",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "plunge-hamstring-side-left",
+    "name": "Plunge for Hamstring for Left Side",
     "sanskrit": "Ardha Hanumanasana",
     "description": "Low lunge with back knee down, shift hips back to straighten front leg. Folds over the front leg to stretch the hamstring.",
     "category": "forward-fold",
     "difficulty": "intermediate",
-    "defaultDuration": 45
+    "defaultDuration": 30
   },
   {
-    "id": "quad-stretch",
-    "name": "Quad Stretch",
+    "id": "plunge-hamstring-side-right",
+    "name": "Plunge for Hamstring for Right Side",
+    "sanskrit": "Ardha Hanumanasana",
+    "description": "Low lunge with back knee down, shift hips back to straighten front leg. Folds over the front leg to stretch the hamstring.",
+    "category": "forward-fold",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "quad-stretch-side-left",
+    "name": "Quad Stretch for Left Side",
+    "sanskrit": "Supta Virasana Variation",
+    "description": "From a low lunge, lower the back knee and reach back to grab the back foot. Pull heel toward glute to stretch the quadriceps.",
+    "category": "backbend",
+    "difficulty": "intermediate",
+    "defaultDuration": 30
+  },
+  {
+    "id": "quad-stretch-side-right",
+    "name": "Quad Stretch for Right Side",
     "sanskrit": "Supta Virasana Variation",
     "description": "From a low lunge, lower the back knee and reach back to grab the back foot. Pull heel toward glute to stretch the quadriceps.",
     "category": "backbend",

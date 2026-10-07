@@ -17,6 +17,7 @@ const {
   totalDuration,
   progress,
   isComplete,
+  isWakeLockActive,
   formattedTimeRemaining,
   formattedTotalDuration,
   initializeExercises,
@@ -61,6 +62,7 @@ function handleMoveExercise(from: number, to: number) {
     <header class="app-header">
       <h1>Yoga Routine</h1>
       <p class="subtitle">Build your perfect yoga sequence</p>
+      <p v-if="isWakeLockActive" class="wake-lock-badge">Screen will stay awake</p>
     </header>
 
     <main class="app-main">
@@ -149,6 +151,15 @@ body {
   margin: 0.5rem 0 0;
   opacity: 0.9;
   font-size: 1rem;
+}
+
+.wake-lock-badge {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
 
 .app-main {

@@ -1,5 +1,6 @@
 import { ref, computed, watch } from 'vue'
 import { useSound } from './useSound'
+import { useWakeLock } from './useWakeLock'
 
 export interface Exercise {
   id: string
@@ -27,6 +28,9 @@ export interface RoutineState {
 }
 
 const STORAGE_KEY = 'yoga-routine'
+
+// Transition break between poses, giving the user time to move into the next pose.
+export const TRANSITION_BREAK_SECONDS = 3
 
 // Load exercises from JSON file
 export async function loadExercises(): Promise<Exercise[]> {
@@ -61,6 +65,7 @@ function saveRoutineToStorage(exercises: RoutineExercise[]) {
 
 export function useYogaRoutine() {
   const { playCountdownBeep, playTransitionBeep, playCompletionSound, resumeContext } = useSound()
+  const { isWakeLockActive, requestWakeLock, releaseWakeLock } = useWakeLock()
   const allExercises = ref<Exercise[]>([])
   const routineExercises = ref<RoutineExercise[]>(loadRoutineFromStorage())
   const currentIndex = ref(0)
@@ -68,6 +73,8 @@ export function useYogaRoutine() {
   const isPaused = ref(false)
   const timeRemaining = ref(0)
   const elapsedTime = ref(0)
+  const isResting = ref(false)
+  const restRemaining = ref(0)
 
   let timerInterval: ReturnType<typeof setInterval> | null = null
 
@@ -81,7 +88,11 @@ export function useYogaRoutine() {
     return Math.min(100, ((completedTime + currentProgress) / totalDuration.value) * 100)
   })
   const isComplete = computed(() => currentIndex.value >= routineExercises.value.length)
+  const upcomingExercise = computed(() =>
+    isResting.value ? routineExercises.value[currentIndex.value + 1] || null : null
+  )
   const formattedTimeRemaining = computed(() => formatTime(timeRemaining.value))
+  const formattedRestRemaining = computed(() => formatTime(restRemaining.value))
   const formattedTotalDuration = computed(() => formatTime(totalDuration.value))
   const formattedElapsedTime = computed(() => formatTime(elapsedTime.value))
 
@@ -173,6 +184,10 @@ export function useYogaRoutine() {
     isRunning.value = true
     isPaused.value = false
 
+    // Keep the screen lit while the routine runs (e.g. iPhone auto-lock).
+    // Fire-and-forget: a wake lock failure must never break the timer.
+    void requestWakeLock()
+
     timerInterval = setInterval(tick, 1000)
   }
 
@@ -190,6 +205,7 @@ export function useYogaRoutine() {
     if (isRunning.value && isPaused.value) {
       resumeContext()
       isPaused.value = false
+      void requestWakeLock()
       timerInterval = setInterval(tick, 1000)
     }
   }
@@ -197,6 +213,7 @@ export function useYogaRoutine() {
   function stopTimer() {
     isRunning.value = false
     isPaused.value = false
+    releaseWakeLock()
     if (timerInterval) {
       clearInterval(timerInterval)
       timerInterval = null
@@ -255,6 +272,7 @@ export function useYogaRoutine() {
 
   // Cleanup on unmount
   function cleanup() {
+    releaseWakeLock()
     if (timerInterval) {
       clearInterval(timerInterval)
       timerInterval = null
@@ -270,6 +288,7 @@ export function useYogaRoutine() {
     isPaused,
     timeRemaining,
     elapsedTime,
+    isWakeLockActive,
 
     // Computed
     currentExercise,
